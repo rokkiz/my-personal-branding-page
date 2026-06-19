@@ -688,7 +688,9 @@ const config = {
 
 module.exports = {
   title: 'My Personal Branding',
-  url: 'https://rokkiz.github.io', // Thay 'rokkiz' bằng username GitHub của bạn nếu sai
-  baseUrl: '/my-personal-branding-page/', // Bắt buộc phải trùng với tên Repo GitHub của bạn và phải có 2 dấu gạch chéo đầu/cuối
-  // ... các cấu hình khác giữ nguyên
+  url: 'https://rokkiz.github.io', // Bắt buộc phải là https://<username>.github.io
+  baseUrl: '/my-personal-branding-page/', // Bắt buộc phải trùng tên Repo và CÓ 2 DẤU GẠCH CHÉO ở đầu và cuối
+  projectName: 'my-personal-branding-page', // Tên repo GitHub của bạn
+  organizationName: 'rokkiz', // Username GitHub của bạn
+  trailingSlash: false,
 };
