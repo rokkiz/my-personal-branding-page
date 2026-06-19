@@ -1,4 +1,6 @@
 const { themes } = require('prism-react-renderer');
+const path = require('path');
+const { pathToFileURL } = require('url');
 
 const code_themes = {
   light: themes.github,
@@ -9,6 +11,11 @@ const baseUrl =
   process.env.NODE_ENV === 'production'
     ? '/my-personal-branding-page/'
     : '/';
+
+const editUrl =
+  process.env.NODE_ENV === 'production'
+    ? 'https://github.com/rokkiz/my-personal-branding-page/tree/main/'
+    : `${pathToFileURL(path.resolve(__dirname, '..')).href}/`;
 
 /** @type {import('@docusaurus/types').Config} */
 const meta = {
@@ -192,7 +199,7 @@ const docs = [
 /** @type {import('@docusaurus/plugin-content-docs').Options} */
 const defaultSettings = {
   breadcrumbs: true,
-  editUrl: 'https://github.com/dyte-io/docs/tree/main/',
+  editUrl,
   showLastUpdateTime: true,
   sidebarCollapsible: true,
   remarkPlugins: [
