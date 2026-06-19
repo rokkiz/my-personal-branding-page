@@ -470,7 +470,7 @@ const config = {
         docs: {
           path: 'docs/guides',
           id: 'guides',
-          routeBasePath: '/guides',
+          routeBasePath: '/',
           ...defaultSettings,
         },
         blog: false,
@@ -515,7 +515,7 @@ const config = {
         items: [
           {
             label: 'Guides',
-            to: 'guides',
+            to: '/',
             className: 'guides-top-header',
           },
           {
