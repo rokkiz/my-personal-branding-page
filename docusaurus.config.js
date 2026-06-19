@@ -154,7 +154,7 @@ const docs = [
   },
   {
     id: 'flutter',
-    path: 'docs/flutter',
+    path: 'docs/flutter123',
     routeBasePath: '/flutter',
     versions: {
       current: {
@@ -686,4 +686,9 @@ const config = {
   // },
 };
 
-module.exports = config;
+module.exports = {
+  title: 'My Personal Branding',
+  url: 'https://rokkiz.github.io', // Thay 'rokkiz' bằng username GitHub của bạn nếu sai
+  baseUrl: '/my-personal-branding-page/', // Bắt buộc phải trùng với tên Repo GitHub của bạn và phải có 2 dấu gạch chéo đầu/cuối
+  // ... các cấu hình khác giữ nguyên
+};
