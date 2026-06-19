@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from '@docusaurus/Link';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 import {
   ChatMultipleRegular,
   LiveRegular,
@@ -44,6 +45,9 @@ function HeroProduct({
   lightImage,
   darkImage,
 }: (typeof PRODUCTS)[0]) {
+  const lightSrc = useBaseUrl(lightImage);
+  const darkSrc = useBaseUrl(darkImage);
+
   return (
     <Link
       to={link}
@@ -67,8 +71,8 @@ function HeroProduct({
       </div>
       <ThemedImage
         sources={{
-          light: lightImage,
-          dark: darkImage,
+          light: lightSrc,
+          dark: darkSrc,
         }}
         alt={title}
         className="mt-1 w-full transition-transform group-hover:scale-110"

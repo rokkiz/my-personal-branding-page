@@ -5,6 +5,7 @@ import { Linkedin, Youtube, Github } from '@styled-icons/boxicons-logos';
 import { XIcon } from '@site/src/icons';
 import BrowserOnly from '@docusaurus/BrowserOnly';
 import ThemedImage from '@theme/ThemedImage';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 
 const products = [
   {
@@ -220,6 +221,10 @@ const comparisons = [
 ];
 
 function Safety({ className }) {
+  const socCompliant = useBaseUrl('/img/soc-compliant-1.png');
+  const hipaaCompliant = useBaseUrl('/img/vector.png');
+  const gdprCompliant = useBaseUrl('/img/gdpr_docs.png');
+
   return (
     <div
       className={clsx(
@@ -233,11 +238,11 @@ function Safety({ className }) {
         Our Priority.
       </div>
       <div className="flex flex-1 items-center justify-around px-6">
-        <img src="/img/soc-compliant-1.png" alt="SOC Compliant" />
-        <img src="/img/vector.png" alt="HIPAA Compliant" />
+        <img src={socCompliant} alt="SOC Compliant" />
+        <img src={hipaaCompliant} alt="HIPAA Compliant" />
         <img
           style={{ width: '62px' }}
-          src="/img/gdpr_docs.png"
+          src={gdprCompliant}
           alt="GDPR compliant"
         />
       </div>
@@ -331,6 +336,9 @@ function Links({ name, links, isAccordion }) {
 }
 
 export default function Footer() {
+  const dyteLightLogo = useBaseUrl('/logo/dyte.svg');
+  const dyteDarkLogo = useBaseUrl('/logo/dyte_dark_logo.svg');
+
   return (
     <footer className="bg-[#F4F7FF] dark:bg-[#191919]">
       <div className="mx-auto flex w-full max-w-[1080px] flex-col px-6 py-12">
@@ -339,8 +347,8 @@ export default function Footer() {
             alt="Dyte"
             className="h-9 w-fit lg:h-12"
             sources={{
-              light: '/logo/dyte.svg',
-              dark: '/logo/dyte_dark_logo.svg',
+              light: dyteLightLogo,
+              dark: dyteDarkLogo,
             }}
           />
 

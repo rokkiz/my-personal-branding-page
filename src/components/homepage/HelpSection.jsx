@@ -1,8 +1,13 @@
 import React from 'react';
 import Link from '@docusaurus/Link';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 import clsx from 'clsx';
 
 export default function HelpSection({ className = '' }) {
+  const calendarIcon = useBaseUrl('/static/landing-page/calendar.svg');
+  const customerIcon = useBaseUrl('/static/landing-page/customer.svg');
+  const chatIcon = useBaseUrl('/static/landing-page/chat.svg');
+
   return (
     <section className="px-4 pt-16">
       <div
@@ -17,7 +22,7 @@ export default function HelpSection({ className = '' }) {
         <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
           <div className="rounded-lg bg-zinc-100 p-6 dark:bg-zinc-900">
             <img
-              src="/static/landing-page/calendar.svg"
+              src={calendarIcon}
               alt="Book a demo"
               width="48"
               height="48"
@@ -37,7 +42,7 @@ export default function HelpSection({ className = '' }) {
 
           <div className="rounded-lg bg-zinc-100 p-6 dark:bg-zinc-900">
             <img
-              src="/static/landing-page/customer.svg"
+              src={customerIcon}
               alt="Support"
               width="48"
               height="48"
@@ -57,7 +62,7 @@ export default function HelpSection({ className = '' }) {
 
           <div className="rounded-lg bg-zinc-100 p-6 dark:bg-zinc-900">
             <img
-              src="/static/landing-page/chat.svg"
+              src={chatIcon}
               alt="FAQs"
               width="48"
               height="48"

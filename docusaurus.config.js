@@ -17,7 +17,7 @@ const meta = {
     'Explore comprehensive documentation for Dyte, including guides, references, and best practices.',
    url: 'https://rokkiz.github.io', 
   baseUrl,
-  favicon: '/favicon.ico',
+  favicon: 'favicon.ico',
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
@@ -498,7 +498,7 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      image: '/img/dyte-docs-card.png',
+      image: 'img/dyte-docs-card.png',
       colorMode: {
         defaultMode: 'light',
       },
@@ -511,8 +511,8 @@ const config = {
       navbar: {
         logo: {
           href: '/',
-          src: '/logo/light.svg',
-          srcDark: '/logo/dark.svg',
+          src: 'logo/light.svg',
+          srcDark: 'logo/dark.svg',
           alt: 'Dyte Documentation | Dyte Docs',
           height: '40px',
           width: '101px',
@@ -577,8 +577,8 @@ const config = {
       footer: {
         logo: {
           href: '/',
-          src: '/logo/light.svg',
-          srcDark: '/logo/dark.svg',
+          src: 'logo/light.svg',
+          srcDark: 'logo/dark.svg',
           alt: 'Dyte Documentation | Dyte Docs',
           height: '36px',
         },
