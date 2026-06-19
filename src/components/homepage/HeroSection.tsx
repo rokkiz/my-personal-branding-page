@@ -82,8 +82,19 @@ function HeroProduct({
 }
 
 export default function HeroSection() {
+  const noiseBgLight = useBaseUrl('/static/landing-page/grid-light.svg');
+  const noiseBgDark = useBaseUrl('/static/landing-page/grid-dark.svg');
+
   return (
-    <div className="noise-bg pb-14">
+    <div
+      className="noise-bg pb-14"
+      style={
+        {
+          '--noise-bg-light': `url(${noiseBgLight})`,
+          '--noise-bg-dark': `url(${noiseBgDark})`,
+        } as React.CSSProperties
+      }
+    >
       <section className="no-underline-links px-4 pt-16 lg:py-0">
         <div className="flex flex-col items-center justify-between py-14">
           <h2 className="mb-4 font-jakarta text-5xl font-bold">

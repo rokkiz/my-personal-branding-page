@@ -3,10 +3,12 @@ import Footer from '@theme-original/Footer';
 import Docsly from '@docsly/react';
 import { useLocation } from '@docusaurus/router';
 import Head from '@docusaurus/Head';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 import HomeFooter from '../../components/homepage/HomeFooter';
 
 export default function FooterWrapper(props) {
   const { pathname } = useLocation();
+  const docslyStylesheet = useBaseUrl('/assets/css/docsly.min.css');
 
   return (
     <>
@@ -18,7 +20,7 @@ export default function FooterWrapper(props) {
          * Doing it this way because importing css in docusaurus
          * reorders the css clases that messes up the docsly styling
          */}
-        <link rel="stylesheet" href="/assets/css/docsly.min.css" />
+        <link rel="stylesheet" href={docslyStylesheet} />
       </Head>
 
       <Docsly

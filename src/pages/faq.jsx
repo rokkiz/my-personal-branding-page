@@ -6,6 +6,7 @@ import { useMemo } from 'react';
 import { Minus, Plus, Search } from 'react-feather';
 import { paramCase } from 'param-case';
 import ReactMarkdown from 'react-markdown';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 
 import FAQs from '../faq';
 import { useEffect } from 'react';
@@ -105,6 +106,15 @@ export default function FAQPage() {
   const [activeFAQ, setActiveFAQ] = useState('');
   const [query, setQuery] = useState('');
   const [activeTab, setActiveTab] = useState('All');
+  const siteBaseUrl = useBaseUrl('/');
+  const noiseBgLight = useBaseUrl('/static/landing-page/grid-light.svg');
+  const noiseBgDark = useBaseUrl('/static/landing-page/grid-dark.svg');
+
+  const prefixRootRelativeMarkdown = (markdown) =>
+    markdown.replace(
+      /(!?)\[([^\]]+)\]\(\/(?!\/)([^)]*)\)/g,
+      (_, bang, label, path) => `${bang}[${label}](${siteBaseUrl}${path})`,
+    );
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
@@ -160,7 +170,13 @@ export default function FAQPage() {
       noFooter
     >
       {/* Hero? */}
-      <section className="noise-bg px-6 py-24">
+      <section
+        className="noise-bg px-6 py-24"
+        style={{
+          '--noise-bg-light': `url(${noiseBgLight})`,
+          '--noise-bg-dark': `url(${noiseBgDark})`,
+        }}
+      >
         <div className="mx-auto flex max-w-7xl flex-col place-items-center justify-center">
           <div className="font-semibold text-zinc-800 dark:text-zinc-300">
             Frequently Asked Questions
@@ -220,7 +236,9 @@ export default function FAQPage() {
                     setActiveFAQ('');
                   }}
                 >
-                  <ReactMarkdown>{faq.answer}</ReactMarkdown>
+                  <ReactMarkdown>
+                    {prefixRootRelativeMarkdown(faq.answer)}
+                  </ReactMarkdown>
                 </Accordion>
               );
             })}

@@ -17,6 +17,17 @@ const editUrl =
     ? 'https://github.com/rokkiz/my-personal-branding-page/tree/main/'
     : `${pathToFileURL(path.resolve(__dirname, '..')).href}/`;
 
+const withBaseUrl = (assetPath) => `${baseUrl}${assetPath.replace(/^\//, '')}`;
+
+const prefixRootRelativePaths = (html) =>
+  html
+    .replace(/(href|src)="\/(?!\/)([^"]*)"/g, (_, attr, path) => {
+      return `${attr}="${withBaseUrl(`/${path}`)}"`;
+    })
+    .replace(/(href|src)='\/(?!\/)([^']*)'/g, (_, attr, path) => {
+      return `${attr}='${withBaseUrl(`/${path}`)}'`;
+    });
+
 /** @type {import('@docusaurus/types').Config} */
 const meta = {
   title: 'Harry Tran',
@@ -453,8 +464,12 @@ const plugins = [
 ];
 
 const fs = require('fs');
-const sdksHTML = fs.readFileSync('./src/snippets/sdks.html', 'utf-8');
-const resourcesHTML = fs.readFileSync('./src/snippets/resources.html', 'utf-8');
+const sdksHTML = prefixRootRelativePaths(
+  fs.readFileSync('./src/snippets/sdks.html', 'utf-8'),
+);
+const resourcesHTML = prefixRootRelativePaths(
+  fs.readFileSync('./src/snippets/resources.html', 'utf-8'),
+);
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -517,7 +532,7 @@ const config = {
       },
       navbar: {
         logo: {
-          href: '/',
+          href: baseUrl,
           src: 'logo/light.svg',
           srcDark: 'logo/dark.svg',
           alt: 'Dyte Documentation | Dyte Docs',
