@@ -34,7 +34,6 @@ module.exports = {
         },
         blog: false,
         theme: {
-          customCss: [],
         },
       }),
     ],
