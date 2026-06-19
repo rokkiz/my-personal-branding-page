@@ -90,7 +90,7 @@ const developers = [
   },
   {
     name: 'Guides',
-    href: '/guides',
+    href: '/guides/',
   },
   {
     name: 'Platform',

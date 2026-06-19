@@ -5,13 +5,18 @@ const code_themes = {
   dark: themes.dracula,
 };
 
+const baseUrl =
+  process.env.NODE_ENV === 'production'
+    ? '/my-personal-branding-page/'
+    : '/';
+
 /** @type {import('@docusaurus/types').Config} */
 const meta = {
   title: 'Harry Tran',
   tagline:
     'Explore comprehensive documentation for Dyte, including guides, references, and best practices.',
    url: 'https://rokkiz.github.io', 
-  baseUrl: '/my-personal-branding-page/',
+  baseUrl,
   favicon: '/favicon.ico',
   i18n: {
     defaultLocale: 'en',
@@ -470,7 +475,7 @@ const config = {
         docs: {
           path: 'docs/guides',
           id: 'guides',
-          routeBasePath: '/',
+          routeBasePath: '/guides',
           ...defaultSettings,
         },
         blog: false,
@@ -515,7 +520,7 @@ const config = {
         items: [
           {
             label: 'Guides',
-            to: '/',
+            to: '/guides/',
             className: 'guides-top-header',
           },
           {
@@ -687,9 +692,10 @@ const config = {
 };
 
 module.exports = {
+  ...config,
   title: 'My Personal Branding',
   url: 'https://rokkiz.github.io', // Bắt buộc phải là https://<username>.github.io
-  baseUrl: '/my-personal-branding-page/', // Bắt buộc phải trùng tên Repo và CÓ 2 DẤU GẠCH CHÉO ở đầu và cuối
+  baseUrl, // Bắt buộc phải trùng tên Repo và CÓ 2 DẤU GẠCH CHÉO ở đầu và cuối
   projectName: 'my-personal-branding-page', // Tên repo GitHub của bạn
   organizationName: 'rokkiz', // Username GitHub của bạn
   trailingSlash: false,
