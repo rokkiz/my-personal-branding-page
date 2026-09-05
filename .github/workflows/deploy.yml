@@ -3,7 +3,8 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main # Hoặc master tùy theo tên nhánh chính của bạn
+      - main
+  workflow_dispatch:
 
 permissions:
   contents: read
