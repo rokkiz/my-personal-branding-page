@@ -1,6 +1,8 @@
 import React from 'react';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 
 export default function AboutSection() {
+  const coachImage = useBaseUrl('/img/brand/coach_hero.jpg');
   const stats = [
     { value: '10+', label: 'Years Experience', detail: 'Executive & Business Coaching' },
     { value: '12+', label: 'Industry Awards', detail: 'Recognized Leadership Mentor' },
@@ -21,7 +23,7 @@ export default function AboutSection() {
           <div className="lg:col-span-5 relative">
             <div className="relative rounded-3xl overflow-hidden border border-slate-800 bg-slate-950 shadow-2xl">
               <img
-                src="/img/brand/coach_hero.jpg"
+                src={coachImage}
                 alt="James David Executive Coach"
                 className="w-full h-auto object-cover rounded-3xl"
               />

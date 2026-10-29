@@ -1,6 +1,8 @@
 import React from 'react';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 
 export default function CaseStudySection() {
+  const clientImage = useBaseUrl('/img/brand/client_ceo.jpg');
   const testimonials = [
     {
       quote: "James helped us re-architect our sales strategy and hire our VP of Growth. In less than 12 months, our EBITDA doubled while working 20 fewer hours a week.",
@@ -45,7 +47,7 @@ export default function CaseStudySection() {
             <div className="lg:col-span-4 flex flex-col items-center text-center lg:items-start lg:text-left space-y-4">
               <div className="relative w-36 h-36 rounded-2xl overflow-hidden border-2 border-blue-500/50 shadow-xl">
                 <img
-                  src="/img/brand/client_ceo.jpg"
+                  src={clientImage}
                   alt="Marcus Vance CEO NexaTech"
                   className="w-full h-full object-cover"
                 />

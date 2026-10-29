@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 
 export default function ResourceNewsletterSection() {
   const [email, setEmail] = useState('');
   const [subscribed, setSubscribed] = useState(false);
+  const coachingImage = useBaseUrl('/img/brand/service_coaching.jpg');
+  const roadmapImage = useBaseUrl('/img/brand/service_roadmap.jpg');
 
   const articles = [
     {
@@ -11,7 +14,7 @@ export default function ResourceNewsletterSection() {
       excerpt: 'Discover why tactics that got you to $1M will actively hinder your progression to $10M.',
       readTime: '6 min read',
       date: 'Sept 2026',
-      image: '/img/brand/service_roadmap.jpg',
+      image: roadmapImage,
     },
     {
       category: 'EXECUTIVE LEADERSHIP',
@@ -19,7 +22,7 @@ export default function ResourceNewsletterSection() {
       excerpt: 'The proven framework for empowering key leaders while maintaining strategic oversight.',
       readTime: '8 min read',
       date: 'Aug 2026',
-      image: '/img/brand/service_coaching.jpg',
+      image: coachingImage,
     },
     {
       category: 'TEAM & CULTURE',
@@ -27,7 +30,7 @@ export default function ResourceNewsletterSection() {
       excerpt: 'Practical systems for fostering accountability, alignment, and high trust in hybrid organizations.',
       readTime: '5 min read',
       date: 'Aug 2026',
-      image: '/img/brand/service_roadmap.jpg',
+      image: roadmapImage,
     },
   ];
 

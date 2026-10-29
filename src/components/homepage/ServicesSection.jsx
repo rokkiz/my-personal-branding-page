@@ -1,13 +1,17 @@
 import React from 'react';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 
 export default function ServicesSection() {
+  const coachingImage = useBaseUrl('/img/brand/service_coaching.jpg');
+  const roadmapImage = useBaseUrl('/img/brand/service_roadmap.jpg');
+
   const services = [
     {
       id: 'coaching',
       tag: '1-ON-1 MENTORSHIP',
       title: 'Strategic 1:1 Executive Coaching',
       description: 'Private, high-impact weekly coaching sessions designed to resolve strategic bottlenecks, refine leadership style, and navigate high-stakes decisions.',
-      image: '/img/brand/service_coaching.jpg',
+      image: coachingImage,
       features: [
         'Weekly 60-min private advisory sessions',
         'Direct 24/7 Voxer/Slack emergency support',
@@ -21,7 +25,7 @@ export default function ServicesSection() {
       tag: 'STRATEGY & SCALING',
       title: 'Personalized Growth Roadmap',
       description: 'A bespoke 90-day strategic execution blueprint that optimizes your revenue funnels, pricing model, and operational unit economics.',
-      image: '/img/brand/service_roadmap.jpg',
+      image: roadmapImage,
       features: [
         'Comprehensive 360° business audit',
         '90-day milestone & KPI scorecards',
@@ -35,7 +39,7 @@ export default function ServicesSection() {
       tag: 'TEAM & CULTURE',
       title: 'Team Leadership & Culture Alignment',
       description: 'Align your executive leadership team around shared OKRs, foster an owner mindset, and build a resilient organizational culture.',
-      image: '/img/brand/service_coaching.jpg',
+      image: coachingImage,
       features: [
         'Executive leadership alignment workshops',
         'Organizational structure redesign',
@@ -49,7 +53,7 @@ export default function ServicesSection() {
       tag: 'PEER NETWORK',
       title: 'CEO Mastermind & Advisory Board',
       description: 'Join an elite peer advisory circle of 7-8 figure founders sharing battle-tested growth strategies, insights, and high-level networking.',
-      image: '/img/brand/service_roadmap.jpg',
+      image: roadmapImage,
       features: [
         'Monthly virtual mastermind sessions',
         'Bi-annual in-person executive retreats',

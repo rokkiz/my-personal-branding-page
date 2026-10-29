@@ -1,6 +1,9 @@
 import React from 'react';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 
 export default function HeroSection() {
+  const coachImage = useBaseUrl('/img/brand/coach_hero.jpg');
+
   return (
     <main id="hero" className="home-hero">
       <div className="home-hero__glow home-hero__glow--blue" />
@@ -45,7 +48,7 @@ export default function HeroSection() {
 
         <div className="home-hero__portrait">
           <img
-            src="/img/brand/coach_hero.jpg"
+            src={coachImage}
             alt="James David, executive and business coach"
           />
           <div className="home-hero__stat">
