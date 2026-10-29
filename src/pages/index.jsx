@@ -1,61 +1,24 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Layout from '@theme/Layout';
-
-import HeroSection from '../components/homepage/HeroSection';
-import APIReferenceSection from '../components/homepage/APIReferenceSection';
-import CommunitySection from '../components/homepage/CommunitySection';
-import HomeFooter from '../components/homepage/HomeFooter';
-import ResourcesSection from '../components/homepage/ResourcesSection';
-import HelpSection from '../components/homepage/HelpSection';
 import Head from '@docusaurus/Head';
-import GuidesAndSamples from '../components/homepage/GuidesAndSamples';
-import SDKs from '../components/homepage/SDKs';
-import Link from '@docusaurus/Link';
-import PhHelloBar from '../components/homepage/PhHelloBar';
+
+import Header from '../components/homepage/Header';
+import HeroSection from '../components/homepage/HeroSection';
 
 export default function Homepage() {
   return (
     <Layout
-      title="Dyte Documentation"
-      wrapperClassName="homepage flex flex-col"
+      title="James David | Executive & Business Leadership Coach"
+      description="Unlock the Leader Within. Scale your business, align high-performance teams, and build sustainable executive momentum with James David."
+      wrapperClassName="homepage home-one-page flex h-screen min-h-0 flex-col overflow-hidden bg-slate-950 font-sans"
       noFooter
     >
       <Head>
-        <link rel="prefetch" href="/assets/css/elements.min.css" />
+        <meta name="keywords" content="Business Coach, Executive Coaching, Leadership Mentor, Founder Scaling, Business Growth Roadmap" />
       </Head>
-      <div>
-        {/* <PhHelloBar /> */}
 
-        {/* Code for Twilio credits banner */}
-
-        {/* <div className="w-full bg-gradient-to-r from-blue-500 to-red-500 p-4 text-center font-medium text-white">
-          Affected by Twilio Video Sunsetting? Migrate to Dyte and get upto
-          $30,000 Credits{' '}
-          <Link
-            to="https://dyte.io/twilio-video-competitor"
-            className="text-white underline"
-          >
-            Learn more
-          </Link>
-        </div> */}
-      </div>
-
+      <Header />
       <HeroSection />
-
-      <GuidesAndSamples />
-
-      <SDKs />
-
-      <APIReferenceSection />
-
-      <div className="z-0">
-        <ResourcesSection />
-        <HelpSection className="-mb-48" />
-      </div>
-
-      <CommunitySection />
-
-      <HomeFooter />
     </Layout>
   );
 }
