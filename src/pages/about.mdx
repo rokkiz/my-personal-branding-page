@@ -1,0 +1,171 @@
+---
+hide_table_of_contents: true
+---
+
+import ResumeLayout, { ResumeAvatar, ResumeDownloadButton } from '../components/homepage/ResumeLayout';
+import { Award, Briefcase, Code, GitHub, Linkedin, Mail, MapPin, Phone, Target } from 'react-feather';
+
+<ResumeLayout>
+
+<div className="resume-page-content">
+  <section className="resume-hero-grid" aria-labelledby="resume-title">
+    <aside className="resume-profile-card" aria-label="Contact information">
+      <div className="resume-avatar-frame"><ResumeAvatar /></div>
+      <p className="resume-profile-name">Tan Ngoc Tran <span>(Harry Tran)</span></p>
+      <p className="resume-profile-role">Software Development Project Manager / Scrum Master</p>
+      <p className="resume-profile-location"><MapPin aria-hidden="true" /> District 2, Ho Chi Minh City, Vietnam</p>
+
+      <div className="resume-profile-links" aria-label="Contact and social profiles">
+        <a href="mailto:tan.tran1992@outlook.com" aria-label="Email Tan Ngoc Tran">
+          <Mail aria-hidden="true" /><span>{'tan.tran1992@outlook.com'}</span>
+        </a>
+        <a href="tel:+84792162177" aria-label="Call Tan Ngoc Tran">
+          <Phone aria-hidden="true" /><span>+84 792 162 177</span>
+        </a>
+        <span className="resume-social-unavailable" title="LinkedIn profile URL has not been provided">
+          <Linkedin aria-hidden="true" /><span>LinkedIn</span>
+        </span>
+        <a href="https://github.com/rokkiz" target="_blank" rel="noreferrer" aria-label="GitHub profile for rokkiz">
+          <GitHub aria-hidden="true" /><span>GitHub</span>
+        </a>
+      </div>
+
+      <ResumeDownloadButton />
+    </aside>
+
+    <div className="resume-intro">
+      <p className="resume-kicker">About / Resume</p>
+      <h1 id="resume-title">Hello There! <span aria-hidden="true">👋</span><br />I'm Tan (Harry) Tran</h1>
+      <p className="resume-intro-copy">
+        I drive technical delivery through clear project planning, practical Scrum practices, and close collaboration with software teams. My background spans software development, IoT, industrial automation, and technical project management.
+      </p>
+      <p className="resume-status"><span aria-hidden="true" />Available for Technical PM &amp; Agile Consulting / Full-time Roles</p>
+    </div>
+  </section>
+
+  <section className="resume-metrics" aria-label="Career highlights">
+    <div className="resume-metric"><strong>7+ Years</strong><span>Project &amp; IT Experience</span></div>
+    <div className="resume-metric"><strong>35+ Members</strong><span>Team &amp; Squad Leadership</span></div>
+    <div className="resume-metric"><strong>&lt; 5%</strong><span>Unplanned DevOps Work Achieved</span></div>
+    <div className="resume-metric"><strong>PSM I</strong><span>Professional Scrum Master Certified</span></div>
+  </section>
+
+  <section className="resume-section" aria-labelledby="resume-skills-title">
+    <div className="resume-section-heading">
+      <p className="resume-kicker">Capabilities</p>
+      <h2 id="resume-skills-title">Let's Explore My Skills &amp; Domain Expertise</h2>
+      <p>Methods, tools, and technical domains I use to help teams deliver with clarity and consistency.</p>
+    </div>
+
+    <div className="resume-skills-grid">
+      <article className="resume-skill-card">
+        <div className="resume-skill-card-heading"><Target aria-hidden="true" /><h3>Agile &amp; Project Management</h3></div>
+        <ul className="resume-skill-tags">
+          <li>Scrum</li><li>Scaled Agile</li><li>Kanban</li><li>CMMI Level 5</li>
+          <li>Risk Management</li><li>Sprint &amp; Backlog Planning</li><li>Release Coordination</li>
+          <li>Project Metrics</li><li>Stakeholder Engagement</li>
+        </ul>
+      </article>
+
+      <article className="resume-skill-card">
+        <div className="resume-skill-card-heading"><Code aria-hidden="true" /><h3>Tech Stack &amp; Tools</h3></div>
+        <ul className="resume-skill-tags">
+          <li>Jira</li><li>Confluence</li><li>DevOps Pipelines</li><li>Application Security</li>
+          <li>Data Analytics</li><li>Python</li><li>OPC UA</li><li>BLE / IoT</li>
+          <li>GE Predix</li><li>AWS</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section className="resume-section" aria-labelledby="resume-experience-title">
+    <div className="resume-section-heading">
+      <p className="resume-kicker">Career</p>
+      <h2 id="resume-experience-title">Experience &amp; Education</h2>
+      <p>A timeline of my project leadership, engineering work, and academic background.</p>
+    </div>
+
+    <div className="resume-timeline">
+      <article className="resume-timeline-card">
+        <div className="resume-timeline-heading"><div><p className="resume-timeline-company">NAB Innovation Centre Vietnam</p><h3>Scrum Master</h3></div><span className="resume-date">April 2024 - Present</span></div>
+        <h4>Responsibilities</h4>
+        <ul>
+          <li>Served as Scrum Master for a DevOps squad and a Business Run squad of 35 members across Internet Banking and NAB Connect.</li>
+          <li>Managed squad and sprint backlogs in line with NAB delivery standards and metrics.</li>
+          <li>Tracked Big Rocks initiatives and used security dashboards to keep delivery aligned with domain objectives.</li>
+          <li>Monitored domain asset hygiene on the Critical Hygiene Framework board and addressed security risks in the squad backlog.</li>
+          <li>Coordinated cross-squad initiatives including Graviton, Canary Deployment, and NEF2.0; maintained release plans and raised risks or conflicts.</li>
+        </ul>
+        <h4>Achievements</h4>
+        <ul>
+          <li>Reduced unplanned DevOps work from 15% to 10% in the first six months, then maintained it below 5% in FY25.</li>
+          <li>Increased DevOps squad delivery from 77% to 81% per sprint, reaching an average of 89% per sprint.</li>
+          <li>Recognized for planning, tracking delivery, and improving the engineering experience.</li>
+        </ul>
+        <h4>Key Learnings</h4>
+        <ul><li>Progressive Elaboration and stakeholder engagement.</li><li>Scaled Agile delivery in a large corporate environment.</li><li>Application security in banking environments.</li></ul>
+      </article>
+
+      <article className="resume-timeline-card">
+        <div className="resume-timeline-heading"><div><p className="resume-timeline-company">Parcel Perform</p><h3>Technical Project Manager</h3></div><span className="resume-date">June 2022 - April 2024</span></div>
+        <h4>Responsibilities</h4>
+        <ul>
+          <li>Managed a cross-functional team of up to 17 people working across eight domains, including Public API, Data Structure, Inbound Integration, Pre-calculated Fields, SLA Calculation, and Statistic Charts.</li>
+          <li>Prioritized the squad backlog based on capacity, with a focus on timely, high-quality delivery.</li>
+          <li>Set and monitored squad velocity, bug rate, estimation deviation, and timeline deviation.</li>
+          <li>Maintained a risk register, identified mitigations before epic development, and tracked risks and issues through delivery.</li>
+        </ul>
+        <h4>Achievements</h4>
+        <ul><li>Ensured smooth deployment of shared services across squads and coordinated post-deployment incident handling.</li><li>Maintained squad velocity at a stable pace.</li></ul>
+        <h4>Key Learnings</h4>
+        <ul><li>Spotify Squad / Tribe / Chapter model.</li><li>XP and Lean practices focused on critical-path work.</li><li>Product software development, incident handling, and supporting team morale through work-life balance and one-to-one meetings.</li></ul>
+      </article>
+
+      <article className="resume-timeline-card">
+        <div className="resume-timeline-heading"><div><p className="resume-timeline-company">FPT Software HCM</p><h3>Project Manager &amp; Scrum Master</h3></div><span className="resume-date">March 2019 - May 2022</span></div>
+        <h4>Responsibilities</h4>
+        <ul>
+          <li>Managed teams of up to 25 members across two projects at a time and contributed to seven projects in finance, e-commerce, and digital factory domains.</li>
+          <li>Managed project planning, execution, and closure to deliver on time, within scope, and within budget.</li>
+          <li>Worked with stakeholders to confirm technical feasibility and measured EE, Leakage, Correction Cost, Defect Rate, and Timeliness.</li>
+          <li>Traveled to customer sites in Europe and the United States for requirements gathering, deployment, training, and user acceptance testing.</li>
+        </ul>
+        <h4>Achievements</h4>
+        <ul><li>Named Best Performer in 2019 and 2020.</li><li>Earned the PSM I certificate in 2020.</li><li>Coached two sub-project managers.</li></ul>
+        <h4>Key Learnings</h4>
+        <ul><li>Waterfall and Agile software development models.</li><li>Software development processes aligned to CMMI Level 5.</li></ul>
+      </article>
+
+      <article className="resume-timeline-card">
+        <div className="resume-timeline-heading"><div><p className="resume-timeline-company">FPT Software HCM</p><h3>Senior Software Developer</h3></div><span className="resume-date">April 2018 - March 2019</span></div>
+        <ul>
+          <li>Worked onsite at a customer factory in the United States, researching ways to transfer data from legacy factory tools to the Predix cloud.</li>
+          <li>Worked with OPC UA server software including Ignition, Kepware, Indusoft, and Iconics.</li>
+          <li>Supported industrial digital transformation using GE Predix, Siemens MindSphere, PTC ThingWorx, and AWS.</li>
+        </ul>
+      </article>
+
+      <article className="resume-timeline-card">
+        <div className="resume-timeline-heading"><div><p className="resume-timeline-company">Inspectorio Inc.</p><h3>IoT R&amp;D Engineer</h3></div><span className="resume-date">March 2017 - March 2018</span></div>
+        <ul>
+          <li>Researched IoT systems spanning devices, gateways, and cloud services.</li>
+          <li>Tested BLE beacons and gateways for garment tracking in a factory use case.</li>
+          <li>Researched sensors for factory monitoring, including temperature, humidity, and motion sensors.</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section className="resume-section" aria-labelledby="resume-education-title">
+    <div className="resume-section-heading">
+      <p className="resume-kicker">Education</p>
+      <h2 id="resume-education-title">Education</h2>
+    </div>
+    <div className="resume-education-grid">
+      <article className="resume-education-card"><Award aria-hidden="true" /><div><h3>Manchester Metropolitan University</h3><p>Manchester, United Kingdom · 2015 - 2016</p><span>MSc, Industrial Communication and Automation · Distinction</span></div></article>
+      <article className="resume-education-card"><Briefcase aria-hidden="true" /><div><h3>Ho Chi Minh City University of Technology (BKHCM)</h3><p>Ho Chi Minh City, Vietnam · 2010 - 2015</p><span>Bachelor of Engineering, Automation and Control System · Good</span></div></article>
+    </div>
+  </section>
+</div>
+
+</ResumeLayout>

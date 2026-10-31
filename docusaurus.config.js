@@ -7,10 +7,7 @@ const code_themes = {
   dark: themes.dracula,
 };
 
-const baseUrl =
-  process.env.NODE_ENV === 'production'
-    ? '/my-personal-branding-page/'
-    : '/';
+const baseUrl = '/my-personal-branding-page/';
 
 const editUrl =
   process.env.NODE_ENV === 'production'
@@ -35,7 +32,7 @@ const meta = {
     'Explore comprehensive documentation for Dyte, including guides, references, and best practices.',
    url: 'https://rokkiz.github.io', 
   baseUrl,
-  favicon: 'favicon.ico',
+  favicon: 'ht-favicon.svg',
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
@@ -715,7 +712,7 @@ const config = {
 
 module.exports = {
   ...config,
-  title: 'My Personal Branding',
+  title: 'Tan (Harry) Tran | Technical Project Manager',
   url: 'https://rokkiz.github.io', // Bắt buộc phải là https://<username>.github.io
   baseUrl, // Bắt buộc phải trùng tên Repo và CÓ 2 DẤU GẠCH CHÉO ở đầu và cuối
   projectName: 'my-personal-branding-page', // Tên repo GitHub của bạn

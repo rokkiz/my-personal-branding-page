@@ -3,6 +3,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 export default function HeroSection() {
   const coachImage = useBaseUrl('/img/brand/coach_hero.jpg');
+  const resumeHref = useBaseUrl('/about');
 
   return (
     <main id="hero" className="home-hero">
@@ -26,7 +27,7 @@ export default function HeroSection() {
           </p>
 
           <a
-            href="mailto:contact@jamesdavidcoach.com?subject=Discovery%20call"
+            href={resumeHref}
             className="home-hero__cta"
           >
             View my Resume

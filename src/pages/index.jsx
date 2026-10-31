@@ -8,7 +8,6 @@ import HeroSection from '../components/homepage/HeroSection';
 export default function Homepage() {
   return (
     <Layout
-      title="James David | Executive & Business Leadership Coach"
       description="Unlock the Leader Within. Scale your business, align high-performance teams, and build sustainable executive momentum with James David."
       wrapperClassName="homepage home-one-page flex h-screen min-h-0 flex-col overflow-hidden bg-slate-950 font-sans"
       noFooter

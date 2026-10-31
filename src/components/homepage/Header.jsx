@@ -17,12 +17,13 @@ function SDKDocLink({ path, icon, children, onClick }) {
 }
 
 export default function Header() {
+  const homeHref = useBaseUrl('/');
+  const resumeHref = useBaseUrl('/about');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [sdkMenuOpen, setSdkMenuOpen] = useState(false);
   const [sdkPlatform, setSdkPlatform] = useState('web');
   const navigationItems = [
     { name: 'Home', href: '#' },
-    { name: 'About', href: '#about' },
     { name: 'Success Stories', href: '#success-stories' },
     { name: 'Blog', href: '#blog' },
     { name: 'Contact', href: '#contact' },
@@ -55,13 +56,15 @@ export default function Header() {
       ] },
     ],
   };
+  const allLearningGroups = [...sdkGroups.web, ...sdkGroups.mobile];
 
   const SDKMenu = () => (
     <div className="home-sdk-menu" role="region" aria-label="SDK documentation">
       <div className="home-sdk-menu__platforms">
         {[
-          ['web', 'Web', 'Guides and API reference for our Web SDKs', 'resources/web.svg'],
-          ['mobile', 'Mobile', 'Guides and API reference for our Mobile SDKs', 'resources/mobile.svg'],
+          ['web', 'Project Management', 'Browse learning resources', 'resources/web.svg'],
+          ['mobile', 'Personal Finance', 'Browse learning resources', 'resources/mobile.svg'],
+          ['product', 'Product Development', 'Browse all learning resources', 'resources/web.svg'],
         ].map(([platform, label, description, icon]) => (
           <button
             key={platform}
@@ -75,9 +78,17 @@ export default function Header() {
             <span><strong>{label}</strong><small>{description}</small></span>
           </button>
         ))}
+        <a
+          className="home-sdk-menu__link"
+          href="http://localhost:3000/my-personal-branding-page/api#/"
+          onClick={() => setSdkMenuOpen(false)}
+        >
+          <SDKIcon name="resources/web.svg" />
+          <span><strong>Technical Knowledge</strong><small>Explore technical resources</small></span>
+        </a>
       </div>
       <div className="home-sdk-menu__groups">
-        {sdkGroups[sdkPlatform].map((group) => (
+        {(sdkPlatform === 'product' ? allLearningGroups : sdkGroups[sdkPlatform]).map((group) => (
           <section key={group.title}>
             <h3>{group.title}</h3>
             <p>{group.subtitle}</p>
@@ -115,7 +126,7 @@ export default function Header() {
   return (
     <header className="home-header">
       <div className="home-header__inner">
-        <a href="#" className="flex items-center gap-3 group text-decoration-none">
+        <a href={homeHref} className="flex items-center gap-3 group text-decoration-none">
           <div className="home-header__monogram">
             HT
           </div>
@@ -146,7 +157,7 @@ export default function Header() {
             {sdkMenuOpen && <SDKMenu />}
           </div>
           <a
-            href="mailto:contact@jamesdavidcoach.com?subject=Discovery%20call"
+            href={resumeHref}
             className="home-header__cta"
           >
             View my Resume
@@ -194,7 +205,7 @@ export default function Header() {
             {sdkMenuOpen && <SDKMenu />}
           </div>
           <a
-            href="mailto:contact@jamesdavidcoach.com?subject=Discovery%20call"
+            href={resumeHref}
             className="home-header__cta"
             onClick={() => setMobileMenuOpen(false)}
           >
