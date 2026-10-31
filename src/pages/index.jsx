@@ -16,7 +16,7 @@ export default function Homepage() {
         <meta name="keywords" content="Business Coach, Executive Coaching, Leadership Mentor, Founder Scaling, Business Growth Roadmap" />
       </Head>
 
-      <Header />
+      <Header showThemeToggle />
       <HeroSection />
     </Layout>
   );

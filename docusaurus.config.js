@@ -33,6 +33,8 @@ const meta = {
    url: 'https://rokkiz.github.io', 
   baseUrl,
   favicon: 'ht-favicon.svg',
+  onBrokenLinks: 'warn',
+  onBrokenAnchors: 'warn',
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
@@ -68,7 +70,7 @@ const docs = [
   {
     id: 'ui-kit',
     path: 'docs/ui-kit',
-    routeBasePath: '/ui-kit',
+    routeBasePath: '/project-performance-domains',
     versions: {
       current: {
         label: '1.x.x',
@@ -78,7 +80,7 @@ const docs = [
   {
     id: 'react-ui-kit',
     path: 'docs/react-ui-kit',
-    routeBasePath: '/react-ui-kit',
+    routeBasePath: '/project-management-principles',
     versions: {
       current: {
         label: '1.x.x',
@@ -88,7 +90,7 @@ const docs = [
   {
     id: 'angular-ui-kit',
     path: 'docs/angular-ui-kit',
-    routeBasePath: '/angular-ui-kit',
+    routeBasePath: '/project-approaches',
     versions: {
       current: {
         label: '1.x.x',
@@ -100,7 +102,7 @@ const docs = [
   {
     id: 'web-core',
     path: 'docs/web-core',
-    routeBasePath: '/web-core',
+    routeBasePath: '/introduction-to-project-management',
     versions: {
       current: {
         label: '2.x.x',
@@ -111,7 +113,7 @@ const docs = [
   {
     id: 'react-web-core',
     path: 'docs/react-web-core',
-    routeBasePath: '/react-web-core',
+    routeBasePath: '/project-management-terms',
     versions: {
       current: {
         label: '2.x.x',
@@ -292,7 +294,37 @@ const plugins = [
         }
 
         if (path.startsWith(''))
-          if (path.startsWith('/web-core/livestreaming')) {
+          if (path === '/project-management-terms') {
+            return ['/react-web-core'];
+          }
+          if (path.startsWith('/project-management-terms')) {
+            return [path.replace('/project-management-terms', '/react-web-core')];
+          }
+          if (path === '/project-management-principles') {
+            return ['/react-ui-kit'];
+          }
+          if (path.startsWith('/project-management-principles')) {
+            return [path.replace('/project-management-principles', '/react-ui-kit')];
+          }
+          if (path === '/project-approaches') {
+            return ['/angular-ui-kit'];
+          }
+          if (path.startsWith('/project-approaches')) {
+            return [path.replace('/project-approaches', '/angular-ui-kit')];
+          }
+          if (path === '/project-performance-domains') {
+            return ['/ui-kit'];
+          }
+          if (path.startsWith('/project-performance-domains')) {
+            return [path.replace('/project-performance-domains', '/ui-kit')];
+          }
+          if (path === '/introduction-to-project-management') {
+          return ['/web-core'];
+        }
+        if (path.startsWith('/introduction-to-project-management')) {
+          return [path.replace('/introduction-to-project-management', '/web-core')];
+        }
+        if (path.startsWith('/web-core/livestreaming')) {
             return [
               path.replace(
                 '/web-core/livestreaming',
@@ -520,6 +552,7 @@ const config = {
       image: 'img/dyte-docs-card.png',
       colorMode: {
         defaultMode: 'light',
+        respectPrefersColorScheme: true,
       },
       docs: {
         sidebar: {

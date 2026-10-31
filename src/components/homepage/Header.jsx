@@ -1,5 +1,34 @@
 import React, { useState } from 'react';
+import BrowserOnly from '@docusaurus/BrowserOnly';
+import { useColorMode } from '@docusaurus/theme-common';
 import useBaseUrl from '@docusaurus/useBaseUrl';
+
+function ThemeToggle() {
+  const { colorMode, setColorMode } = useColorMode();
+  const nextTheme = colorMode === 'dark' ? 'light' : 'dark';
+
+  return (
+    <button
+      type="button"
+      className="home-header__theme-toggle"
+      aria-label={`Switch to ${nextTheme} mode`}
+      aria-pressed={colorMode === 'light'}
+      title={`Switch to ${nextTheme} mode`}
+      onClick={() => setColorMode(nextTheme)}
+    >
+      {colorMode === 'dark' ? (
+        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <circle cx="12" cy="12" r="4" />
+          <path strokeLinecap="round" strokeWidth="2" d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42" />
+        </svg>
+      ) : (
+        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M20.2 15.1A8.5 8.5 0 0 1 8.9 3.8 8.5 8.5 0 1 0 20.2 15.1Z" />
+        </svg>
+      )}
+    </button>
+  );
+}
 
 function SDKIcon({ name }) {
   const src = useBaseUrl(`/static/landing-page/sdk-icons/${name}`);
@@ -16,7 +45,7 @@ function SDKDocLink({ path, icon, children, onClick }) {
   );
 }
 
-export default function Header() {
+export default function Header({ showThemeToggle = false }) {
   const homeHref = useBaseUrl('/');
   const resumeHref = useBaseUrl('/about');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -31,24 +60,24 @@ export default function Header() {
 
   const sdkGroups = {
     web: [
-      { title: 'Core SDK', subtitle: 'Video + Voice + Livestreaming', items: [
-        ['JavaScript', '/web-core', 'js.png'],
-        ['React', '/react-web-core', 'react.png'],
-      ] },
-      { title: 'UI Kit', subtitle: 'Easy to use library of UI components', items: [
-        ['React', '/react-ui-kit', 'react.png'],
-        ['Angular', '/angular-ui-kit', 'angular.png'],
-        ['Web Components', '/ui-kit', 'html.png'],
-      ] },
+      { title: 'Introduction to Project Management', path: '/introduction-to-project-management', items: [] },
+      { title: 'Project Management Terms', path: '/project-management-terms', items: [] },
+      { title: 'Project Management Principles', path: '/project-management-principles', items: [] },
+      { title: 'Project Approaches', path: '/project-approaches', items: [] },
+      { title: 'Project Performance Domains', path: '/project-performance-domains', items: [] },
+      { title: 'Project Common ITTOs', items: [] },
+      { title: 'Project Processes', items: [] },
+      { title: 'Agile Mindset and Leadership', items: [] },
+      { title: 'AI in Project Management', items: [] },
     ],
     mobile: [
-      { title: 'Core SDK', subtitle: 'Video + Voice + Livestreaming', items: [
+      { title: 'Core SDK', items: [
         ['React Native', '/rn-core', 'react.png'],
         ['Flutter', '/flutter-core', 'flutter.png'],
         ['Android', '/android-core', 'kotlin.png'],
         ['iOS', '/ios-core', 'swift.png'],
       ] },
-      { title: 'UI Kit', subtitle: 'Easy to use library of UI components', items: [
+      { title: 'UI Kit', items: [
         ['React Native', '/react-native', 'react.png'],
         ['Flutter', '/flutter', 'flutter.png'],
         ['Android', '/android', 'kotlin.png'],
@@ -62,10 +91,10 @@ export default function Header() {
     <div className="home-sdk-menu" role="region" aria-label="SDK documentation">
       <div className="home-sdk-menu__platforms">
         {[
-          ['web', 'Project Management', 'Browse learning resources', 'resources/web.svg'],
-          ['mobile', 'Personal Finance', 'Browse learning resources', 'resources/mobile.svg'],
-          ['product', 'Product Development', 'Browse all learning resources', 'resources/web.svg'],
-        ].map(([platform, label, description, icon]) => (
+          ['web', 'Project Management', 'resources/web.svg'],
+          ['mobile', 'Personal Finance', 'resources/mobile.svg'],
+          ['product', 'Product Development', 'resources/web.svg'],
+        ].map(([platform, label, icon]) => (
           <button
             key={platform}
             type="button"
@@ -75,7 +104,7 @@ export default function Header() {
             onClick={() => setSdkPlatform(platform)}
           >
             <SDKIcon name={icon} />
-            <span><strong>{label}</strong><small>{description}</small></span>
+            <span><strong>{label}</strong></span>
           </button>
         ))}
         <a
@@ -90,16 +119,17 @@ export default function Header() {
       <div className="home-sdk-menu__groups">
         {(sdkPlatform === 'product' ? allLearningGroups : sdkGroups[sdkPlatform]).map((group) => (
           <section key={group.title}>
-            <h3>{group.title}</h3>
-            <p>{group.subtitle}</p>
+            <h3>
+              {group.path ? (
+                <a href={useBaseUrl(group.path)} onClick={() => setSdkMenuOpen(false)}>
+                  {group.title}
+                </a>
+              ) : group.title}
+            </h3>
             <ul>
               {group.items.map(([label, path, icon]) => (
                 <li key={path}>
-                  <SDKDocLink
-                    path={path}
-                    icon={icon}
-                    onClick={() => setSdkMenuOpen(false)}
-                  >
+                  <SDKDocLink path={path} icon={icon} onClick={() => setSdkMenuOpen(false)}>
                     {label}
                   </SDKDocLink>
                 </li>
@@ -127,88 +157,64 @@ export default function Header() {
     <header className="home-header">
       <div className="home-header__inner">
         <a href={homeHref} className="flex items-center gap-3 group text-decoration-none">
-          <div className="home-header__monogram">
-            HT
-          </div>
+          <div className="home-header__monogram">HT</div>
           <div>
-            <span className="home-header__name">
-              Tan (Harry) Tran
-            </span>
-            <span className="home-header__subtitle">
-              Technical Project Manager
-            </span>
+            <span className="home-header__name">Tan (Harry) Tran</span>
+            <span className="home-header__subtitle">Technical Project Manager</span>
           </div>
         </a>
 
-        <nav className="home-header__nav" aria-label="Main navigation">
-          {navigationItems.map((item) => (
-            <a key={item.name} href={item.href}>
-              {item.name}
+        <div className="home-header__actions">
+          <nav className="home-header__nav" aria-label="Main navigation">
+            {navigationItems.map((item) => <a key={item.name} href={item.href}>{item.name}</a>)}
+            <div
+              className="home-sdk-dropdown"
+              onMouseLeave={() => setSdkMenuOpen(false)}
+              onBlur={(event) => {
+                if (!event.currentTarget.contains(event.relatedTarget)) setSdkMenuOpen(false);
+              }}
+            >
+              <SDKMenuButton />
+              {sdkMenuOpen && <SDKMenu />}
+            </div>
+            <a href={resumeHref} className="home-header__cta">
+              View my Resume
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
             </a>
-          ))}
-          <div
-            className="home-sdk-dropdown"
-            onMouseLeave={() => setSdkMenuOpen(false)}
-            onBlur={(event) => {
-              if (!event.currentTarget.contains(event.relatedTarget)) setSdkMenuOpen(false);
-            }}
-          >
-            <SDKMenuButton />
-            {sdkMenuOpen && <SDKMenu />}
-          </div>
-          <a
-            href={resumeHref}
-            className="home-header__cta"
-          >
-            View my Resume
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-            </svg>
-          </a>
-        </nav>
+          </nav>
 
-        <button
-          type="button"
-          className="home-header__menu-toggle"
-          aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
-          aria-expanded={mobileMenuOpen}
-          aria-controls="home-mobile-navigation"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-        >
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-            {mobileMenuOpen ? (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-            ) : (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
-            )}
-          </svg>
-        </button>
+          <button
+            type="button"
+            className="home-header__menu-toggle"
+            aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+            aria-expanded={mobileMenuOpen}
+            aria-controls="home-mobile-navigation"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              {mobileMenuOpen ? (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+              ) : (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+              )}
+            </svg>
+          </button>
+          {showThemeToggle && <BrowserOnly>{() => <ThemeToggle />}</BrowserOnly>}
+        </div>
       </div>
 
       {mobileMenuOpen && (
-        <nav
-          id="home-mobile-navigation"
-          className="home-header__mobile-nav"
-          aria-label="Mobile navigation"
-        >
+        <nav id="home-mobile-navigation" className="home-header__mobile-nav" aria-label="Mobile navigation">
           {navigationItems.map((item) => (
-            <a
-              key={item.name}
-              href={item.href}
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              {item.name}
-            </a>
+            <a key={item.name} href={item.href} onClick={() => setMobileMenuOpen(false)}>{item.name}</a>
           ))}
           <div className="home-sdk-mobile">
             <SDKMenuButton />
             {sdkMenuOpen && <SDKMenu />}
           </div>
-          <a
-            href={resumeHref}
-            className="home-header__cta"
-            onClick={() => setMobileMenuOpen(false)}
-          >
+          <a href={resumeHref} className="home-header__cta" onClick={() => setMobileMenuOpen(false)}>
             View my Resume
           </a>
         </nav>

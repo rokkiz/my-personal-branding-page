@@ -11,10 +11,14 @@ export default function ResumeLayout({ children }) {
       wrapperClassName="homepage resume-page flex min-h-screen flex-col bg-slate-950 font-sans"
       noFooter
     >
-      <Header />
+      <Header showThemeToggle />
       <main className="resume-main">
         <article className="resume-document">{children}</article>
       </main>
+      <footer className="resume-footer">
+        <span>© Tan Ngoc Tran</span>
+        <a href="mailto:tan.tran1992@outlook.com">Let's connect</a>
+      </footer>
     </Layout>
   );
 }
