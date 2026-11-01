@@ -68,8 +68,8 @@ const docs = [
 
   // Web UI Kits
   {
-    id: 'ui-kit',
-    path: 'docs/ui-kit',
+    id: 'project-performance-domains',
+    path: 'docs/project-performance-domains',
     routeBasePath: '/project-performance-domains',
     versions: {
       current: {
@@ -78,8 +78,8 @@ const docs = [
     },
   },
   {
-    id: 'react-ui-kit',
-    path: 'docs/react-ui-kit',
+    id: 'project-management-principles',
+    path: 'docs/project-management-principles',
     routeBasePath: '/project-management-principles',
     versions: {
       current: {
@@ -88,8 +88,8 @@ const docs = [
     },
   },
   {
-    id: 'angular-ui-kit',
-    path: 'docs/angular-ui-kit',
+    id: 'project-approaches',
+    path: 'docs/project-approaches',
     routeBasePath: '/project-approaches',
     versions: {
       current: {
@@ -100,8 +100,8 @@ const docs = [
 
   // Web Core
   {
-    id: 'web-core',
-    path: 'docs/web-core',
+    id: 'introduction-to-project-management',
+    path: 'docs/introduction-to-project-management',
     routeBasePath: '/introduction-to-project-management',
     versions: {
       current: {
@@ -111,8 +111,8 @@ const docs = [
   },
   // React Web Core
   {
-    id: 'react-web-core',
-    path: 'docs/react-web-core',
+    id: 'project-management-terms',
+    path: 'docs/project-management-terms',
     routeBasePath: '/project-management-terms',
     versions: {
       current: {

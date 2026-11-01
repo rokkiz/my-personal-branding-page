@@ -1,3 +1,3 @@
-rm docs/react-ui-kit/components/dyte-*
-rm docs/ui-kit/components/dyte-*
-rm docs/angular-ui-kit/components/dyte-*
+rm docs/project-management-principles/components/dyte-*
+rm docs/project-performance-domains/components/dyte-*
+rm docs/project-approaches/components/dyte-*

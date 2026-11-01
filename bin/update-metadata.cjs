@@ -11,9 +11,9 @@ const prefixes = {
   flutter: 'Flutter',
   'android-core': 'Android Core',
   'flutter-core': 'Flutter Core',
-  'angular-ui-kit': 'Angular UI Kit',
-  'ui-kit': 'UI Kit',
-  'react-ui-kit': 'React UI Kit',
+  'project-approaches': 'Angular UI Kit',
+  'project-performance-domains': 'UI Kit',
+  'project-management-principles': 'React UI Kit',
   cli: 'CLI',
   'ios-core': 'iOS Core',
   ios: 'iOS',
@@ -21,7 +21,7 @@ const prefixes = {
   'rn-core': 'React Native Core',
   'rn-ui-kit': 'React Native UI Kit',
   'web-core': 'Web Core',
-  'react-web-core': 'React Web Core',
+  'project-management-terms': 'React Web Core',
 };
 
 let count = 0;

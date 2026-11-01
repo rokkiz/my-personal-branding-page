@@ -47,19 +47,19 @@ const SECTIONS: Section[] = [
   // - web-ui-kit
   {
     name: 'Web Components',
-    docId: 'ui-kit',
+    docId: 'project-performance-domains',
     icon: HTMLIcon,
     section: 'web-ui-kit',
   },
   {
     name: 'React UI Kit',
-    docId: 'react-ui-kit',
+    docId: 'project-management-principles',
     icon: ReactIcon,
     section: 'web-ui-kit',
   },
   {
     name: 'Angular UI Kit',
-    docId: 'angular-ui-kit',
+    docId: 'project-approaches',
     icon: AngularIcon,
     section: 'web-ui-kit',
   },
@@ -67,13 +67,13 @@ const SECTIONS: Section[] = [
   // - web-core-sdk
   {
     name: 'JavaScript',
-    docId: 'web-core',
+    docId: 'introduction-to-project-management',
     icon: JSIcon,
     section: 'web-core-sdk',
   },
   // {
   //   name: 'React',
-  //   docId: 'react-web-core',
+  //   docId: 'project-management-terms',
   //   icon: ReactIcon,
   //   section: 'web-core-sdk',
   // },

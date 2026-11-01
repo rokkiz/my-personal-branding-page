@@ -19,7 +19,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument('-o', '--owner', help='Owner of the repo', default='dyte-in')
 parser.add_argument('-r', '--repo', help='Repo to fetch docs from', default='web-core')
 parser.add_argument('-v', '--version', help='Release version to update docs to')
-parser.add_argument('-d', '--destination', help='Destination folder for reference directory', default='docs/web-core')
+parser.add_argument('-d', '--destination', help='Destination folder for reference directory', default='docs/introduction-to-project-management')
 
 args = parser.parse_args()
 
