@@ -1,0 +1,198 @@
+.page {
+  width: min(900px, 100%);
+  margin: 0 auto;
+  padding: 48px 28px 80px;
+  color: var(--ifm-font-color-base);
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 28px;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.header p,
+.description {
+  margin: 8px 0 0;
+  color: var(--ifm-color-emphasis-800);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.backLink,
+.tokenHelp {
+  color: var(--ifm-color-primary);
+  font-size: 13px;
+  text-decoration: none;
+}
+
+.backLink {
+  flex-shrink: 0;
+  margin-top: 6px;
+}
+
+.backLink:hover,
+.tokenHelp:hover {
+  text-decoration: underline;
+}
+
+.panel {
+  padding: 24px;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 8px;
+  background: var(--ifm-background-surface-color, var(--ifm-background-color));
+}
+
+.panel h2 {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.description {
+  margin-bottom: 24px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.branchField {
+  grid-column: 1 / -1;
+}
+
+.field {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 8px;
+  color: var(--ifm-font-color-base);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.field input {
+  width: 100%;
+  height: 40px;
+  padding: 0 11px;
+  border: 1px solid var(--ifm-color-emphasis-400);
+  border-radius: 5px;
+  background: var(--ifm-background-color);
+  color: var(--ifm-font-color-base);
+  font: inherit;
+  font-weight: 400;
+}
+
+.field input:focus-visible {
+  border-color: var(--ifm-color-primary);
+  outline: 2px solid
+    color-mix(in srgb, var(--ifm-color-primary) 25%, transparent);
+  outline-offset: 1px;
+}
+
+.field input:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+.securityNote {
+  margin: 9px 0 20px;
+  color: var(--ifm-color-emphasis-800);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.saveButton,
+.forgetButton {
+  min-height: 36px;
+  padding: 0 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.saveButton {
+  border: 1px solid var(--ifm-color-primary);
+  background: var(--ifm-color-primary);
+  color: var(--ifm-color-primary-contrast-foreground, #fff);
+}
+
+.forgetButton {
+  border: 1px solid var(--ifm-color-emphasis-400);
+  background: transparent;
+  color: var(--ifm-font-color-base);
+}
+
+.saveButton:disabled,
+.forgetButton:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.saveButton:focus-visible,
+.forgetButton:focus-visible,
+.tokenHelp:focus-visible,
+.backLink:focus-visible {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 2px;
+}
+
+.notice {
+  margin-top: 20px;
+  padding: 12px 14px;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 5px;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.successNotice {
+  background: color-mix(in srgb, #247b50 9%, var(--ifm-background-color));
+}
+
+.errorNotice {
+  background: color-mix(in srgb, #c4242a 8%, var(--ifm-background-color));
+}
+
+@media (max-width: 600px) {
+  .page {
+    padding: 32px 16px 56px;
+  }
+
+  .header {
+    flex-direction: column;
+  }
+
+  .panel {
+    padding: 18px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .branchField {
+    grid-column: auto;
+  }
+}

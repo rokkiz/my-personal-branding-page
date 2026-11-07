@@ -1,5 +1,5 @@
 {
-  "name": "dyte-docs",
+  "name": "harry-tran-branding-page",
   "version": "1.20.0",
   "private": true,
   "scripts": {
@@ -39,8 +39,12 @@
     "@dytesdk/web-core": "file:modules/dytesdk-web-core-1.31.0-stripped.1.tgz",
     "@fluentui/react-icons": "^2.0.271",
     "@headlessui/react": "^1.7.14",
+    "@octokit/rest": "^22.0.1",
     "@radix-ui/react-select": "^2.1.5",
     "@stoplight/elements": "^8.0.2",
+    "@tiptap/markdown": "^3.33.0",
+    "@tiptap/react": "^3.33.0",
+    "@tiptap/starter-kit": "^3.33.0",
     "clsx": "^2.1.1",
     "nanoid": "^5.0.6",
     "param-case": "^3.0.4",
@@ -51,6 +55,11 @@
     "react-dom": "^18.2.0",
     "react-feather": "^2.0.10",
     "reactflow": "^11.10.4",
+    "remark-directive": "^3.0.1",
+    "remark-frontmatter": "^5.0.0",
+    "remark-mdx": "^3.1.0",
+    "remark-parse": "^11.0.0",
+    "unified": "^11.0.4",
     "zustand": "^4.5.2"
   },
   "devDependencies": {
