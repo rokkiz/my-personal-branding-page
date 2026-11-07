@@ -30,7 +30,7 @@ const meta = {
   title: 'Harry Tran',
   tagline:
     'Explore comprehensive documentation for Dyte, including guides, references, and best practices.',
-   url: 'https://rokkiz.github.io', 
+  url: 'https://rokkiz.github.io',
   baseUrl,
   favicon: 'ht-favicon.svg',
   onBrokenLinks: 'warn',
@@ -239,12 +239,14 @@ function create_doc_plugin({
 
 const { webpackPlugin } = require('./plugins/webpack-plugin.cjs');
 const tailwindPlugin = require('./plugins/tailwind-plugin.cjs');
+const localEditorApiPlugin = require('./plugins/local-editor-api.cjs');
 const docs_plugins = docs.map((doc) => create_doc_plugin(doc));
 
 const plugins = [
   tailwindPlugin,
   ...docs_plugins,
   webpackPlugin,
+  localEditorApiPlugin,
   [
     '@docusaurus/plugin-client-redirects',
     {
@@ -297,41 +299,45 @@ const plugins = [
           if (path === '/project-management-terms') {
             return ['/react-web-core'];
           }
-          if (path.startsWith('/project-management-terms')) {
-            return [path.replace('/project-management-terms', '/react-web-core')];
-          }
-          if (path === '/project-management-principles') {
-            return ['/react-ui-kit'];
-          }
-          if (path.startsWith('/project-management-principles')) {
-            return [path.replace('/project-management-principles', '/react-ui-kit')];
-          }
-          if (path === '/project-approaches') {
-            return ['/angular-ui-kit'];
-          }
-          if (path.startsWith('/project-approaches')) {
-            return [path.replace('/project-approaches', '/angular-ui-kit')];
-          }
-          if (path === '/project-performance-domains') {
-            return ['/ui-kit'];
-          }
-          if (path.startsWith('/project-performance-domains')) {
-            return [path.replace('/project-performance-domains', '/ui-kit')];
-          }
-          if (path === '/introduction-to-project-management') {
+        if (path.startsWith('/project-management-terms')) {
+          return [path.replace('/project-management-terms', '/react-web-core')];
+        }
+        if (path === '/project-management-principles') {
+          return ['/react-ui-kit'];
+        }
+        if (path.startsWith('/project-management-principles')) {
+          return [
+            path.replace('/project-management-principles', '/react-ui-kit'),
+          ];
+        }
+        if (path === '/project-approaches') {
+          return ['/angular-ui-kit'];
+        }
+        if (path.startsWith('/project-approaches')) {
+          return [path.replace('/project-approaches', '/angular-ui-kit')];
+        }
+        if (path === '/project-performance-domains') {
+          return ['/ui-kit'];
+        }
+        if (path.startsWith('/project-performance-domains')) {
+          return [path.replace('/project-performance-domains', '/ui-kit')];
+        }
+        if (path === '/introduction-to-project-management') {
           return ['/web-core'];
         }
         if (path.startsWith('/introduction-to-project-management')) {
-          return [path.replace('/introduction-to-project-management', '/web-core')];
+          return [
+            path.replace('/introduction-to-project-management', '/web-core'),
+          ];
         }
         if (path.startsWith('/web-core/livestreaming')) {
-            return [
-              path.replace(
-                '/web-core/livestreaming',
-                '/web-core/livestreaming/livestream-apis',
-              ),
-            ];
-          }
+          return [
+            path.replace(
+              '/web-core/livestreaming',
+              '/web-core/livestreaming/livestream-apis',
+            ),
+          ];
+        }
         if (path.startsWith('/rn-core/livestreaming')) {
           return [
             path.replace(
@@ -607,10 +613,20 @@ const config = {
             label: 'Support',
             to: 'https://dyte.io/contact?type=docs',
           },
+          {
+            label: 'Editor settings',
+            to: '/editor-settings',
+          },
 
           {
             type: 'search',
             position: 'right',
+          },
+          {
+            label: 'Quickstart',
+            to: '/introduction-to-project-management',
+            position: 'right',
+            className: 'navbar-quickstart',
           },
           {
             label: 'Book a demo',
