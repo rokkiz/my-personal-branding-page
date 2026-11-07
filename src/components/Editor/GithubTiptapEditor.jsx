@@ -115,6 +115,7 @@ export default function GithubTiptapEditor({ filePath, title, onClose }) {
       setIsDirty(rawSource !== savedSourceRef.current);
     },
   });
+  const editorSettingsUrl = useBaseUrl('/editor-settings');
 
   const loadContent = useCallback(
     (content, fileSha = '') => {
@@ -411,7 +412,7 @@ export default function GithubTiptapEditor({ filePath, title, onClose }) {
           <p className={styles.filePath}>{filePath}</p>
         </div>
         <div className={styles.headerActions}>
-          <Link className={styles.settingsLink} to={useBaseUrl('/editor-settings')}>
+          <Link className={styles.settingsLink} to={editorSettingsUrl}>
             Editor settings
           </Link>
           <button
@@ -436,7 +437,7 @@ export default function GithubTiptapEditor({ filePath, title, onClose }) {
         isReady && (
           <p className={styles.setupMessage} role="status">
             GitHub editing requires a token. Add it on the{' '}
-            <Link to={useBaseUrl('/editor-settings')}>Editor settings</Link> page.
+            <Link to={editorSettingsUrl}>Editor settings</Link> page.
           </p>
         )
       )}
