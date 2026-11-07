@@ -9,6 +9,8 @@ tags:
   - Design System
 ---
 
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
 # Design System
 
 A design system is a collection of reusable components, defined by clear standards, that can be assembled together to build any number of applications.
@@ -120,14 +122,14 @@ final uikitInfo = DyteUIKitInfo(meetingInfo,
   }}
 >
   {[
-    '/static/mobile/0.x.x/flutter-setup-ct.png',
-    '/static/mobile/0.x.x/flutter-vc-ct.png',
-    '/static/mobile/0.x.x/flutter-host-actions-ct.png',
-    '/static/mobile/0.x.x/flutter-poll-ct.png',
-    '/static/mobile/0.x.x/flutter-participants-list-ct.png',
-  ].map((i) => (
+    useBaseUrl('/static/mobile/0.x.x/flutter-setup-ct.png'),
+    useBaseUrl('/static/mobile/0.x.x/flutter-vc-ct.png'),
+    useBaseUrl('/static/mobile/0.x.x/flutter-host-actions-ct.png'),
+    useBaseUrl('/static/mobile/0.x.x/flutter-poll-ct.png'),
+    useBaseUrl('/static/mobile/0.x.x/flutter-participants-list-ct.png'),
+  ].map((imageUrl) => (
     <img
-      src={i}
+      src={imageUrl}
       alt="Image 1"
       width="220"
       style={{ margin: '10px', borderRadius: '8px' }}

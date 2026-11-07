@@ -1,5 +1,6 @@
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 
 ## Quickstart
 
@@ -140,14 +141,14 @@ Voila! You're all done.
   }}
 >
   {[
-    '/static/mobile/0.x.x/flutter-setup-page.png',
-    '/static/mobile/0.x.x/flutter-video-call.png',
-    '/static/mobile/0.x.x/flutter-participant-list.png',
-    '/static/mobile/0.x.x/flutter-advanced-features.png',
-    '/static/mobile/0.x.x/flutter-chat.png',
-  ].map((i) => (
+    useBaseUrl('/static/mobile/0.x.x/flutter-setup-page.png'),
+    useBaseUrl('/static/mobile/0.x.x/flutter-video-call.png'),
+    useBaseUrl('/static/mobile/0.x.x/flutter-participant-list.png'),
+    useBaseUrl('/static/mobile/0.x.x/flutter-advanced-features.png'),
+    useBaseUrl('/static/mobile/0.x.x/flutter-chat.png'),
+  ].map((imageUrl) => (
     <img
-      src={i}
+      src={imageUrl}
       alt="Image 1"
       width="220"
       padding="10"

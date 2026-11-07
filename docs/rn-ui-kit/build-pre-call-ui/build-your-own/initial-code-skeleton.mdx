@@ -4,6 +4,7 @@ sidebar_position: 1
 ---
 
 import CodeRunner from '@site/src/components/CodeRunner/CodeRunner';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 
 ## What are we building?
 
@@ -12,7 +13,7 @@ We are deconstructing the default setup screen.
 At the end of this group of docs, we should have the following screen built using low level components.
 
 <img
-  src="/static/guides/build-pre-call-ui/skeleton-page/meeting-precall.png"
+  src={useBaseUrl('/static/guides/build-pre-call-ui/skeleton-page/meeting-precall.png')}
   width="1280"
   height="720"
   alt="Meeting Precall post skeleton changes"

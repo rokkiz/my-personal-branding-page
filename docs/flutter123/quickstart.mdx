@@ -4,6 +4,8 @@ description: Quickstart guide for Dyte's Flutter UI Kit.
 sidebar_position: 2
 ---
 
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
 # Quickstart
 
 This quickstart shows how to use Dyte's Flutter UI Kit SDK to add live video and
@@ -214,14 +216,14 @@ Voila! You're all done. Here is the pictorial representation of all the configur
   }}
 >
   {[
-    '/static/mobile/0.x.x/flutter-setup-page.png',
-    '/static/mobile/0.x.x/flutter-video-call.png',
-    '/static/mobile/0.x.x/flutter-participant-list.png',
-    '/static/mobile/0.x.x/flutter-advanced-features.png',
-    '/static/mobile/0.x.x/flutter-chat.png',
-  ].map((i) => (
+    useBaseUrl('/static/mobile/0.x.x/flutter-setup-page.png'),
+    useBaseUrl('/static/mobile/0.x.x/flutter-video-call.png'),
+    useBaseUrl('/static/mobile/0.x.x/flutter-participant-list.png'),
+    useBaseUrl('/static/mobile/0.x.x/flutter-advanced-features.png'),
+    useBaseUrl('/static/mobile/0.x.x/flutter-chat.png'),
+  ].map((imageUrl) => (
     <img
-      src={i}
+      src={imageUrl}
       alt="Image 1"
       width="220"
       padding="10"

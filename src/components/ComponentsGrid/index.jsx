@@ -1,4 +1,5 @@
 import Link from '@docusaurus/Link';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 import React from 'react';
 import styles from './styles.module.css';
 
@@ -10,6 +11,8 @@ import styles from './styles.module.css';
  * @param {{ item: ComponentEntry, basePath: string }}
  */
 function Card({ item, basePath }) {
+  const imageUrl = useBaseUrl(`${basePath}/${item.component}.svg`);
+
   return (
     <Link
       className={styles.card}
@@ -18,7 +21,7 @@ function Card({ item, basePath }) {
     >
       <div className={styles.imageContainer}>
         <img
-          src={`${basePath}/${item.component}.svg`}
+          src={imageUrl}
           alt=""
           className={styles.image}
         />

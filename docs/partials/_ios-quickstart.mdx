@@ -1,6 +1,7 @@
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import { CocoaPodInstallation } from '@site/src/components/LatestInstallation';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 
 ## Quickstart
 
@@ -104,12 +105,12 @@ Here is a pictorial representation of all the config options defined below.
   }}
 >
   {[
-    '/static/ios/meeting-setup.png',
-    '/static/ios/meeting.png',
-    '/static/ios/meeting-options.png',
-  ].map((i) => (
+    useBaseUrl('/static/ios/meeting-setup.png'),
+    useBaseUrl('/static/ios/meeting.png'),
+    useBaseUrl('/static/ios/meeting-options.png'),
+  ].map((imageUrl) => (
     <img
-      src={i}
+      src={imageUrl}
       alt="meeting UI screenshot with labeled parts"
       width="220"
       padding="10"

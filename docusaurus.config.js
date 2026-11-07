@@ -16,6 +16,38 @@ const editUrl =
 
 const withBaseUrl = (assetPath) => `${baseUrl}${assetPath.replace(/^\//, '')}`;
 
+/**
+ * Docusaurus prefixes Markdown asset URLs with `baseUrl`, but raw MDX JSX
+ * attributes bypass that handling. Keep root-relative assets in raw <img>
+ * elements working in both the local site and the GitHub Pages deployment.
+ */
+const prefixRootRelativeMdxAssetUrls = () => (tree) => {
+  const visit = (node) => {
+    if (
+      (node.type === 'mdxJsxFlowElement' ||
+        node.type === 'mdxJsxTextElement') &&
+      node.name === 'img'
+    ) {
+      node.attributes?.forEach((attribute) => {
+        if (
+          attribute.type === 'mdxJsxAttribute' &&
+          attribute.name === 'src' &&
+          typeof attribute.value === 'string' &&
+          attribute.value.startsWith('/') &&
+          !attribute.value.startsWith('//') &&
+          !attribute.value.startsWith(baseUrl)
+        ) {
+          attribute.value = withBaseUrl(attribute.value);
+        }
+      });
+    }
+
+    node.children?.forEach(visit);
+  };
+
+  visit(tree);
+};
+
 const prefixRootRelativePaths = (html) =>
   html
     .replace(/(href|src)="\/(?!\/)([^"]*)"/g, (_, attr, path) => {
@@ -214,6 +246,7 @@ const defaultSettings = {
   sidebarCollapsible: true,
   remarkPlugins: [
     [require('@docusaurus/remark-plugin-npm2yarn'), { sync: true }],
+    prefixRootRelativeMdxAssetUrls,
   ],
   sidebarPath: require.resolve('./sidebars-default.js'),
 };
