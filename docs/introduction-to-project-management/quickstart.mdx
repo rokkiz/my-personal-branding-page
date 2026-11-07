@@ -1,10 +1,13 @@
 ---
+
 tags:
-  - web-core
-  - quickstart
-  - setup
+
+- web-core
+- quickstart
+- setup
 slug: /
-sidebar_position: 2
+sidebar\_position: 2
+
 ---
 
 import Tabs from '@theme/Tabs';
@@ -13,7 +16,7 @@ import { WebCoreCDNInstallation } from '@site/src/components/LatestInstallation'
 
 # Test editor
 
-This quickstart shows how to incorporate live video and audio into any web application using Dyte's Core SDKs.
+This is Harry Tran
 
 Core SDKs offer comprehensive customization and branding capabilities, enabling you to create your own user interface (UI) from scratch, without having to deal with complex media layers.
 
@@ -31,8 +34,7 @@ You'll learn how to:
 ## Before Getting Started
 
 - Make sure you've read the [Getting Started with Dyte](/getting-started) topic
-  and completed the following steps:
-
+and completed the following steps:
   - Create a [Dyte Developer Account](https://dev.dyte.io/)
   - Create a [Dyte Meeting](/api/?v=v2#/operations/create_meeting)
   - [Add Participant](/api/?v=v2#/operations/add_participant) to the meeting
@@ -41,8 +43,8 @@ You'll learn how to:
 
 You can install the package using CDN, npm or Yarn.
 
-<Tabs groupId="framework" defaultValue="react">
-<TabItem value="js" label="Javascript">
+&lt;Tabs groupId="framework" defaultValue="react"&gt;
+&lt;TabItem value="js" label="Javascript"&gt;
 
 ### NPM
 
@@ -50,35 +52,31 @@ You can install the package using CDN, npm or Yarn.
 npm install @dytesdk/web-core
 ```
 
-[![npm version](https://badge.fury.io/js/@dytesdk%2Fweb-core.svg)](https://badge.fury.io/js/@dytesdk%2Fweb-core)
+[npm version](https://badge.fury.io/js/@dytesdk%2Fweb-core)
 
 ### CDN
 
 Add the following script tag in the head of your HTML file.
 
-  <WebCoreCDNInstallation />
-  
-</TabItem>
-<TabItem value="react" label="React">
-```shell
+  &lt;WebCoreCDNInstallation /&gt;
+
+&lt;/TabItem&gt;
+&lt;TabItem value="react" label="React"&gt;
+\`\`\`shell
 npm install @dytesdk/react-web-core
-```
+\`\`\`
 
-[![npm version](https://badge.fury.io/js/@dytesdk%2Freact-web-core.svg)](https://badge.fury.io/js/@dytesdk%2Freact-web-core)
+[npm version](https://badge.fury.io/js/@dytesdk%2Freact-web-core)
 
-</TabItem>
-</Tabs>
+&lt;/TabItem&gt;
+&lt;/Tabs&gt;
 
 ## Step 2: Initialize the SDK
 
-<Tabs groupId="framework" defaultValue="react">
-<TabItem value="js" label="Javascript">
+&lt;Tabs groupId="framework" defaultValue="react"&gt;
+&lt;TabItem value="js" label="Javascript"&gt;
 1. Initialize the Dyte client.
-2. Call the `init()` method and pass the authToken.
-
-|             |                                                                                                                                                                                   |
-| ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `authToken` | After you've created the meeting, add each participant to the meeting using the [Add Participant API](/api#/operations/add_participant). The API response contains the authToken. |
+2. Call the \`init()\` method and pass the authToken.
 
 ```js
 const meeting = await DyteClient.init({
@@ -86,9 +84,9 @@ const meeting = await DyteClient.init({
 });
 ```
 
-</TabItem>
-<TabItem value="react" label="React">
-To start, we need to initialize the libraries and wrap the application in the `<DyteProvider />` component. Import the `DyteProvider` from the `dytesdk/react-web-core`.
+&lt;/TabItem&gt;
+&lt;TabItem value="react" label="React"&gt;
+To start, we need to initialize the libraries and wrap the application in the \`&lt;DyteProvider /&gt;\` component. Import the \`DyteProvider\` from the \`dytesdk/react-web-core\`.
 
 The `<DyteProvider />` provides the necessary context for the various hooks to consume the `meeting` object as per their purpose. Dyte provides the following built-in hooks for your usage:
 
@@ -127,8 +125,8 @@ export default function App() {
 
 You can now use the `useDyteMeeting` and `useDyteSelector` hooks as required.
 
-</TabItem>
-</Tabs>
+&lt;/TabItem&gt;
+&lt;/Tabs&gt;
 
 ## Step 3: Connect to the meeting
 
@@ -157,8 +155,8 @@ and stopping recording, you can do so after the `roomJoined` event is fired.
 
 For example:
 
-<Tabs groupId="framework" defaultValue="react">
-  <TabItem value="js" label="Javascript">
+&lt;Tabs groupId="framework" defaultValue="react"&gt;
+  &lt;TabItem value="js" label="Javascript"&gt;
 
 ```js
 meeting.self.on('roomJoined', () => {
@@ -167,8 +165,8 @@ meeting.self.on('roomJoined', () => {
 });
 ```
 
-  </TabItem>
-  <TabItem value="react" label="React">
+  &lt;/TabItem&gt;
+  &lt;TabItem value="react" label="React"&gt;
 
 ```js
 ...
@@ -187,8 +185,8 @@ useEffect(() => {
 ...
 ```
 
-</TabItem>
-</Tabs>
+&lt;/TabItem&gt;
+&lt;/Tabs&gt;
 
 :::
 
@@ -210,8 +208,8 @@ Once the leave room process completes `roomLeft` event is emitted on `meeting.se
 
 For example:
 
-<Tabs groupId="framework" defaultValue="react">
-  <TabItem value="js" label="Javascript">
+&lt;Tabs groupId="framework" defaultValue="react"&gt;
+  &lt;TabItem value="js" label="Javascript"&gt;
 
 ```js
 meeting.self.on('roomLeft', () => {
@@ -220,8 +218,8 @@ meeting.self.on('roomLeft', () => {
 });
 ```
 
-  </TabItem>
-  <TabItem value="react" label="React">
+  &lt;/TabItem&gt;
+  &lt;TabItem value="react" label="React"&gt;
 
 ```js
 ...
@@ -240,10 +238,7 @@ useEffect(() => {
 ...
 ```
 
-</TabItem>
-</Tabs>
+&lt;/TabItem&gt;
+&lt;/Tabs&gt;
 :::
 
-<head>
-  <title>Web Core Quickstart</title>
-</head>
